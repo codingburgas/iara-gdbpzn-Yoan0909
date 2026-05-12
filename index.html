@@ -12,7 +12,86 @@
 </head>
 <body>
 
-  <!-- content will be added in future commits -->
+  <!-- ═══════════════ TOP BAR ═══════════════ -->
+  <header class="topbar">
+    <div class="topbar-left">
+      <div class="logo-badge">
+        <div class="logo-icon">🔥</div>
+        <div>
+          <div class="logo-text">ГДПБЗН</div>
+          <div class="logo-sub">ИНФОРМАЦИОННА СИСТЕМА · МВР БЪЛГАРИЯ</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar-status">
+      <div class="status-item">
+        <div class="status-val red" id="active-count">4</div>
+        <div class="status-lbl">АКТИВНИ</div>
+      </div>
+      <div class="status-item">
+        <div class="status-val green" id="units-count">12</div>
+        <div class="status-lbl">ЕКИПИ</div>
+      </div>
+      <div class="status-item">
+        <div class="status-val yellow">47</div>
+        <div class="status-lbl">СЛУЖИТЕЛИ</div>
+      </div>
+      <div class="status-item">
+        <div class="status-val" style="color:var(--cyan)">8</div>
+        <div class="status-lbl">АВТОМОБИЛИ</div>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <div>
+        <div class="time-display" id="clock">00:00:00</div>
+        <div class="date-display">ОПЕРАТИВЕН ЦЕНТЪР</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════ NAVIGATION ═══════════════ -->
+  <nav class="nav">
+    <button class="nav-btn active" onclick="switchView('ops')">
+      ⚡ Оперативен Център
+      <span class="nav-badge">4</span>
+    </button>
+    <button class="nav-btn" onclick="switchView('incidents')">🚨 Произшествия</button>
+    <button class="nav-btn" onclick="switchView('personnel')">👥 Персонал</button>
+    <button class="nav-btn" onclick="switchView('vehicles')">🚒 Автомобили</button>
+    <button class="nav-btn" onclick="switchView('resources')">📦 Ресурси</button>
+  </nav>
+
+  <!-- ═══════════════ WORKSPACE ═══════════════ -->
+  <div class="workspace">
+
+    <!-- ops view (active by default) -->
+    <div id="view-ops" class="view active" style="flex-direction:row; width:100%;">
+      <!-- sidebar + main + right-panel added in commit 3 -->
+    </div>
+
+    <!-- incidents view -->
+    <div id="view-incidents" class="view" style="flex-direction:column; width:100%; padding:20px;">
+      <p style="color:var(--text-dim); font-family:var(--font-mono);">ПРОИЗШЕСТВИЯ – coming soon</p>
+    </div>
+
+    <!-- personnel view -->
+    <div id="view-personnel" class="view" style="flex-direction:column; width:100%; padding:20px;">
+      <p style="color:var(--text-dim); font-family:var(--font-mono);">ПЕРСОНАЛ – coming soon</p>
+    </div>
+
+    <!-- vehicles view -->
+    <div id="view-vehicles" class="view" style="flex-direction:column; width:100%; padding:20px;">
+      <p style="color:var(--text-dim); font-family:var(--font-mono);">АВТОМОБИЛИ – coming soon</p>
+    </div>
+
+    <!-- resources view -->
+    <div id="view-resources" class="view" style="flex-direction:column; width:100%; padding:20px;">
+      <p style="color:var(--text-dim); font-family:var(--font-mono);">РЕСУРСИ – coming soon</p>
+    </div>
+
+  </div><!-- /workspace -->
 
   <script src="app.js"></script>
 </body>
