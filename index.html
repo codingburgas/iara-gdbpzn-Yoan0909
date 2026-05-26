@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<!-- Commit 5: Add task board -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -32,7 +32,6 @@
     </div>
   </div>
 </div>
-
 <div class="nav">
   <button class="nav-btn active" onclick="switchView('ops')">⚡ Оперативен Център <span class="nav-badge">4</span></button>
   <button class="nav-btn" onclick="switchView('incidents')">🚨 Произшествия</button>
@@ -40,12 +39,9 @@
   <button class="nav-btn" onclick="switchView('vehicles')">🚒 Автомобили</button>
   <button class="nav-btn" onclick="switchView('resources')">📦 Ресурси</button>
 </div>
-
 <div class="workspace">
-
-  <!-- OPS VIEW -->
   <div id="view-ops" class="view active" style="flex-direction:row;width:100%;">
-
+    
     <div class="sidebar">
       <div class="section-hdr">
         <span>ПРОИЗШЕСТВИЯ</span>
@@ -94,10 +90,10 @@
         </div>
       </div>
     </div>
-
     <div class="main">
-
-      <!-- Map -->
+      
+      
+      
       <div class="map-container">
         <div class="map-bg"></div>
         <div class="map-grid"></div>
@@ -109,9 +105,7 @@
         <div class="map-unit unit-enroute" style="left:55%;top:48%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-07</div></div>
         <div class="map-unit unit-available" style="left:65%;top:35%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-05</div></div>
         <div class="map-controls">
-          <button class="map-btn">+</button>
-          <button class="map-btn">−</button>
-          <button class="map-btn">⊕</button>
+          <button class="map-btn">+</button><button class="map-btn">−</button><button class="map-btn">⊕</button>
         </div>
         <div style="position:absolute;bottom:10px;left:12px;display:flex;gap:12px;font-family:var(--font-mono);font-size:9px;">
           <span style="color:var(--red)">● ПОЖАР</span>
@@ -119,75 +113,60 @@
           <span style="color:var(--green)">● СВОБОДЕН</span>
         </div>
       </div>
-
-      <!-- ★ NEW IN COMMIT 4: Detail Panel -->
+      
       <div class="detail-panel" id="incident-detail">
         <div class="detail-id">#2024-0412 · ГОРСКИ ПОЖАР · ПРИОРИТЕТ КРИТИЧЕН</div>
         <div class="detail-title">🔥 Горски пожар – Витоша, м. Боряна</div>
         <div class="detail-grid">
-          <div class="detail-field">
-            <label>МЕСТОПОЛОЖЕНИЕ</label>
-            <div class="val">Витоша, м. Боряна<br><span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">42.6284° N, 23.2847° E</span></div>
-          </div>
-          <div class="detail-field">
-            <label>РЕГИСТРИРАН ЧРЕЗ</label>
-            <div class="val">Тел. 112 · 13:04:17</div>
-          </div>
-          <div class="detail-field">
-            <label>ЗАСЕГНАТА ПЛОЩ</label>
-            <div class="val danger">~4.2 ха и нараства</div>
-          </div>
-          <div class="detail-field">
-            <label>ВЯТЪР</label>
-            <div class="val">СЗ · 18 км/ч · Засилване</div>
-          </div>
-          <div class="detail-field">
-            <label>НАЗНАЧЕНИ ЕКИПИ</label>
-            <div class="val">АА-01, АА-03, АА-06</div>
-          </div>
-          <div class="detail-field">
-            <label>КОМАНДИР</label>
-            <div class="val">Ст. Инсп. Георгиев П.</div>
-          </div>
+          <div class="detail-field"><label>МЕСТОПОЛОЖЕНИЕ</label><div class="val">Витоша, м. Боряна</div></div>
+          <div class="detail-field"><label>РЕГИСТРИРАН ЧРЕЗ</label><div class="val">Тел. 112 · 13:04:17</div></div>
+          <div class="detail-field"><label>ЗАСЕГНАТА ПЛОЩ</label><div class="val danger">~4.2 ха и нараства</div></div>
+          <div class="detail-field"><label>КОМАНДИР</label><div class="val">Ст. Инсп. Георгиев П.</div></div>
         </div>
         <div class="hazmat-list">
           <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:2px;margin-bottom:6px;">ОПАСНИ ВЕЩЕСТВА / РИСКОВЕ</div>
           <div class="hazmat-item">⚠️ Гъста дървесна растителност – бърз пренос на огъня</div>
           <div class="hazmat-item">⚠️ Близост до населено място – евакуация в готовност</div>
-          <div class="hazmat-item">⚠️ Ограничен достъп за тежка техника</div>
         </div>
         <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
-          <button class="btn btn-red btn-sm" onclick="alert('GPS навигация стартирана!')">🗺 GPS НАВИГАЦИЯ</button>
+          <button class="btn btn-red btn-sm">🗺 GPS НАВИГАЦИЯ</button>
           <button class="btn btn-outline btn-sm">📋 ПЛАН ЗА ДЕЙСТВИЕ</button>
-          <button class="btn btn-outline btn-sm">📹 ВИДЕО ВРЪЗКА</button>
           <button class="btn btn-outline btn-sm" style="color:var(--green);border-color:var(--green)" onclick="closeIncident()">✓ ПРИКЛЮЧИ</button>
         </div>
       </div>
-
+      
+      <div class="team-section">
+        <h3>ЗАДАЧИ ПО ПРОИЗШЕСТВИЕ #2024-0412</h3>
+        <div class="task-board">
+          <div>
+            <div class="task-col-hdr col-todo">⬜ ЗА ИЗПЪЛНЕНИЕ</div>
+            <div class="task-item"><div class="task-item-title">Доставка вода – 2 цистерни</div><div class="task-item-meta">ЛОГИСТИКА · ПРИОРИТЕТ: ВИСОК</div></div>
+            <div class="task-item"><div class="task-item-title">Евакуация на 3 вили</div><div class="task-item-meta">ОПЕРАТИВНА · АА-07</div></div>
+          </div>
+          <div>
+            <div class="task-col-hdr col-active">🔄 В ПРОЦЕС</div>
+            <div class="task-item" style="border-left:2px solid var(--yellow)"><div class="task-item-title">Гасене на главния фронт</div><div class="task-item-meta">ОПЕРАТИВНА · АА-01, АА-03</div></div>
+            <div class="task-item" style="border-left:2px solid var(--yellow)"><div class="task-item-title">Изграждане на противопожарна линия</div><div class="task-item-meta">ОПЕРАТИВНА · АА-06</div></div>
+          </div>
+          <div>
+            <div class="task-col-hdr col-done">✅ ИЗПЪЛНЕНИ</div>
+            <div class="task-item" style="opacity:0.6;border-left:2px solid var(--green)"><div class="task-item-title">Доклад до ГД</div><div class="task-item-meta">АДМИНИСТРАТИВНА · 13:15ч</div></div>
+            <div class="task-item" style="opacity:0.6;border-left:2px solid var(--green)"><div class="task-item-title">Разузнаване</div><div class="task-item-meta">ОПЕРАТИВНА · 13:22ч</div></div>
+          </div>
+        </div>
+      </div>
     </div>
-
+    
     <div class="right-panel">
-      <div class="section-hdr"><span>ЧАТ</span> #2024-0412</div>
-      <div style="padding:16px;color:var(--text-dim);font-size:12px;">Чат панелът ще бъде добавен в следващ commit.</div>
+      <div class="section-hdr"><span>ЧАТ</span> #2024-0412 <span class="notif"></span></div>
+      <div style="padding:16px;color:var(--text-dim);font-size:12px;">Чат идва в следващ commit.</div>
     </div>
-
   </div>
-
-  <div id="view-incidents" class="view" style="flex-direction:column;width:100%;padding:20px;">
-    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ВСИЧКИ ПРОИЗШЕСТВИЯ</div>
-  </div>
-  <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;">
-    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПЕРСОНАЛ</div>
-  </div>
-  <div id="view-vehicles" class="view" style="flex-direction:column;width:100%;padding:20px;">
-    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">АВТОМОБИЛИ</div>
-  </div>
-  <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;">
-    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ</div>
-  </div>
-
+  <div id="view-incidents" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПРОИЗШЕСТВИЯ – скоро</div></div>
+  <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПЕРСОНАЛ – скоро</div></div>
+  <div id="view-vehicles"  class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">АВТОМОБИЛИ – скоро</div></div>
+  <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ – скоро</div></div>
 </div>
-
 <script src="app.js"></script>
 </body>
 </html>
