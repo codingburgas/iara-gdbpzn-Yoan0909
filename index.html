@@ -1,385 +1,193 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ГДПБЗН – Информационна Система</title>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap"
-    rel="stylesheet"
-  />
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ГДПБЗН – Информационна Система</title>
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- ═══════════════ TOP BAR ═══════════════ -->
-  <header class="topbar">
-    <div class="topbar-left">
-      <div class="logo-badge">
-        <div class="logo-icon">🔥</div>
-        <div>
-          <div class="logo-text">ГДПБЗН</div>
-          <div class="logo-sub">ИНФОРМАЦИОННА СИСТЕМА · МВР БЪЛГАРИЯ</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="topbar-status">
-      <div class="status-item">
-        <div class="status-val red" id="active-count">4</div>
-        <div class="status-lbl">АКТИВНИ</div>
-      </div>
-      <div class="status-item">
-        <div class="status-val green" id="units-count">12</div>
-        <div class="status-lbl">ЕКИПИ</div>
-      </div>
-      <div class="status-item">
-        <div class="status-val yellow">47</div>
-        <div class="status-lbl">СЛУЖИТЕЛИ</div>
-      </div>
-      <div class="status-item">
-        <div class="status-val" style="color:var(--cyan)">8</div>
-        <div class="status-lbl">АВТОМОБИЛИ</div>
-      </div>
-    </div>
-
-    <div class="topbar-right">
+<div class="topbar">
+  <div class="topbar-left">
+    <div class="logo-badge">
+      <div class="logo-icon">🔥</div>
       <div>
-        <div class="time-display" id="clock">00:00:00</div>
-        <div class="date-display">ОПЕРАТИВЕН ЦЕНТЪР</div>
+        <div class="logo-text">ГДПБЗН</div>
+        <div class="logo-sub">ИНФОРМАЦИОННА СИСТЕМА · МВР БЪЛГАРИЯ</div>
       </div>
     </div>
-  </header>
-
-  <!-- ═══════════════ NAVIGATION ═══════════════ -->
-  <nav class="nav">
-    <button class="nav-btn active" onclick="switchView('ops')">
-      ⚡ Оперативен Център <span class="nav-badge">4</span>
-    </button>
-    <button class="nav-btn" onclick="switchView('incidents')">🚨 Произшествия</button>
-    <button class="nav-btn" onclick="switchView('personnel')">👥 Персонал</button>
-    <button class="nav-btn" onclick="switchView('vehicles')">🚒 Автомобили</button>
-    <button class="nav-btn" onclick="switchView('resources')">📦 Ресурси</button>
-  </nav>
-
-  <!-- ═══════════════ WORKSPACE ═══════════════ -->
-  <div class="workspace">
-
-    <!-- ── OPS VIEW ── -->
-    <div id="view-ops" class="view active" style="flex-direction:row; width:100%;">
-
-      <!-- LEFT SIDEBAR – incident list -->
-      <aside class="sidebar">
-        <div class="section-hdr">
-          <span>ПРОИЗШЕСТВИЯ</span>
-          <button class="btn btn-red btn-sm" onclick="newIncident()">+ НОВО</button>
-        </div>
-        <div class="incidents" id="incidents-list">
-
-          <div class="incident-card priority-high selected" onclick="selectIncident(0)">
-            <div class="inc-id">#2024-0412</div>
-            <div class="inc-type">🔥 Горски пожар</div>
-            <div class="inc-location">📍 Витоша, Боряна</div>
-            <div class="inc-meta">
-              <span class="inc-tag tag-active">АКТИВНО</span>
-              <span class="inc-tag tag-unit">3 ЕКИПА</span>
-              <span class="inc-tag tag-time">1:24ч</span>
-            </div>
-          </div>
-
-          <div class="incident-card priority-high" onclick="selectIncident(1)">
-            <div class="inc-id">#2024-0411</div>
-            <div class="inc-type">🏭 Промишлен пожар</div>
-            <div class="inc-location">📍 Индустриална зона, Люлин</div>
-            <div class="inc-meta">
-              <span class="inc-tag tag-active">АКТИВНО</span>
-              <span class="inc-tag tag-unit">2 ЕКИПА</span>
-              <span class="inc-tag tag-time">0:47ч</span>
-            </div>
-          </div>
-
-          <div class="incident-card priority-med" onclick="selectIncident(2)">
-            <div class="inc-id">#2024-0410</div>
-            <div class="inc-type">🚗 ПТП с пострадали</div>
-            <div class="inc-location">📍 Ботевградско шосе, км 12</div>
-            <div class="inc-meta">
-              <span class="inc-tag tag-new">НОВО 112</span>
-              <span class="inc-tag tag-unit">1 ЕКИП</span>
-              <span class="inc-tag tag-time">0:08ч</span>
-            </div>
-          </div>
-
-          <div class="incident-card priority-low" onclick="selectIncident(3)">
-            <div class="inc-id">#2024-0409</div>
-            <div class="inc-type">💨 Газова авария</div>
-            <div class="inc-location">📍 ул. Г. С. Раковски 45</div>
-            <div class="inc-meta">
-              <span class="inc-tag tag-active">АКТИВНО</span>
-              <span class="inc-tag tag-unit">1 ЕКИП</span>
-              <span class="inc-tag tag-time">0:35ч</span>
-            </div>
-          </div>
-
-        </div>
-      </aside>
-
-      <!-- MAIN CONTENT -->
-      <main class="main" id="main-content">
-
-        <!-- Alert banner -->
-        <div class="alert-banner" id="alert-banner">
-          <div class="alert-icon">⚠️</div>
-          <div class="alert-text">
-            <strong>НОВА ЗАДАЧА ОТ 112:</strong>
-            ПТП на Ботевградско шосе – изпратете екип незабавно.
-          </div>
-          <button class="alert-close" onclick="document.getElementById('alert-banner').style.display='none'">✕</button>
-        </div>
-
-        <!-- Resource overview -->
-        <div class="resource-bar">
-          <h3>РЕСУРСИ · ТЕКУЩО СМЯНА</h3>
-          <div class="resource-grid">
-            <div class="resource-item">
-              <div class="resource-value r-active">4</div>
-              <div class="resource-label">АКТИВНИ ПРОИЗШ.</div>
-            </div>
-            <div class="resource-item">
-              <div class="resource-value r-standby">6</div>
-              <div class="resource-label">ГОТОВИ ЕКИПИ</div>
-            </div>
-            <div class="resource-item">
-              <div class="resource-value r-total">47</div>
-              <div class="resource-label">СЛУЖИТЕЛИ НА СМЯНА</div>
-            </div>
-            <div class="resource-item">
-              <div class="resource-value" style="color:var(--cyan)">8/10</div>
-              <div class="resource-label">АВТОМОБИЛИ ГОТОВИ</div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Map -->
-        <div class="map-container">
-          <div class="map-bg"></div>
-          <div class="map-grid"></div>
-          <div class="map-label">КАРТА · СОФИЯ И РАЙОН · GPS LIVE</div>
-
-          <div class="map-fire" style="left:38%;top:30%" title="Горски пожар – Витоша">🔥</div>
-          <div class="map-fire" style="left:22%;top:52%;font-size:18px" title="Промишлен пожар">🔥</div>
-
-          <div class="map-unit unit-fire"      style="left:35%;top:26%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-01</div></div>
-          <div class="map-unit unit-fire"      style="left:41%;top:34%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-03</div></div>
-          <div class="map-unit unit-enroute"   style="left:55%;top:48%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-07</div></div>
-          <div class="map-unit unit-available" style="left:65%;top:35%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-05</div></div>
-          <div class="map-unit unit-available" style="left:70%;top:60%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-09</div></div>
-          <div class="map-unit unit-enroute"   style="left:19%;top:48%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-02</div></div>
-
-          <div class="map-controls">
-            <button class="map-btn">+</button>
-            <button class="map-btn">−</button>
-            <button class="map-btn">⊕</button>
-            <button class="map-btn">🗺</button>
-          </div>
-
-          <div style="position:absolute;bottom:10px;left:12px;display:flex;gap:12px;font-family:var(--font-mono);font-size:9px;">
-            <span style="color:var(--red)">● ПОЖАР</span>
-            <span style="color:var(--yellow)">● В ДВИЖЕНИЕ</span>
-            <span style="color:var(--green)">● СВОБОДЕН</span>
-          </div>
-        </div>
-
-        <!-- Incident detail -->
-        <div class="detail-panel" id="incident-detail">
-          <div class="detail-id">#2024-0412 · ГОРСКИ ПОЖАР · ПРИОРИТЕТ КРИТИЧЕН</div>
-          <div class="detail-title">🔥 Горски пожар – Витоша, м. Боряна</div>
-          <div class="detail-grid">
-            <div class="detail-field">
-              <label>МЕСТОПОЛОЖЕНИЕ</label>
-              <div class="val">Витоша, м. Боряна<br><span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">42.6284° N, 23.2847° E</span></div>
-            </div>
-            <div class="detail-field">
-              <label>РЕГИСТРИРАН ЧРЕЗ</label>
-              <div class="val">Тел. 112 · 13:04:17</div>
-            </div>
-            <div class="detail-field">
-              <label>ЗАСЕГНАТА ПЛОЩ</label>
-              <div class="val danger">~4.2 ха и нараства</div>
-            </div>
-            <div class="detail-field">
-              <label>ВЯТЪР</label>
-              <div class="val">СЗ · 18 км/ч · Засилване</div>
-            </div>
-            <div class="detail-field">
-              <label>НАЗНАЧЕНИ ЕКИПИ</label>
-              <div class="val">АА-01, АА-03, АА-06</div>
-            </div>
-            <div class="detail-field">
-              <label>КОМАНДИР</label>
-              <div class="val">Ст. Инсп. Георгиев П.</div>
-            </div>
-          </div>
-          <div class="hazmat-list">
-            <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:2px;margin-bottom:6px;">ОПАСНИ ВЕЩЕСТВА / РИСКОВЕ</div>
-            <div class="hazmat-item">⚠️ Гъста дървесна растителност – бърз пренос на огъня</div>
-            <div class="hazmat-item">⚠️ Близост до населено място – евакуация в готовност</div>
-            <div class="hazmat-item">⚠️ Ограничен достъп за тежка техника</div>
-          </div>
-          <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
-            <button class="btn btn-red btn-sm"     onclick="alert('GPS навигация стартирана!')">🗺 GPS НАВИГАЦИЯ</button>
-            <button class="btn btn-outline btn-sm">📋 ПЛАН ЗА ДЕЙСТВИЕ</button>
-            <button class="btn btn-outline btn-sm">📹 ВИДЕО ВРЪЗКА</button>
-            <button class="btn btn-outline btn-sm">+ ДОБАВИ ЗАДАЧА</button>
-            <button class="btn btn-outline btn-sm" style="color:var(--green);border-color:var(--green)" onclick="closeIncident()">✓ ПРИКЛЮЧИ</button>
-          </div>
-        </div>
-
-        <!-- Task board -->
-        <div class="team-section">
-          <h3>ЗАДАЧИ ПО ПРОИЗШЕСТВИЕ #2024-0412</h3>
-          <div class="task-board">
-            <div>
-              <div class="task-col-hdr col-todo">⬜ ЗА ИЗПЪЛНЕНИЕ</div>
-              <div class="task-item"><div class="task-item-title">Доставка вода – 2 цистерни</div><div class="task-item-meta">ЛОГИСТИКА · ПРИОРИТЕТ: ВИСОК</div></div>
-              <div class="task-item"><div class="task-item-title">Евакуация на 3 вили</div><div class="task-item-meta">ОПЕРАТИВНА · АА-07</div></div>
-            </div>
-            <div>
-              <div class="task-col-hdr col-active">🔄 В ПРОЦЕС</div>
-              <div class="task-item" style="border-left:2px solid var(--yellow)"><div class="task-item-title">Гасене на главния фронт</div><div class="task-item-meta">ОПЕРАТИВНА · АА-01, АА-03</div></div>
-              <div class="task-item" style="border-left:2px solid var(--yellow)"><div class="task-item-title">Изграждане на противопожарна линия</div><div class="task-item-meta">ОПЕРАТИВНА · АА-06</div></div>
-            </div>
-            <div>
-              <div class="task-col-hdr col-done">✅ ИЗПЪЛНЕНИ</div>
-              <div class="task-item" style="opacity:0.6;border-left:2px solid var(--green)"><div class="task-item-title">Доклад до ГД</div><div class="task-item-meta">АДМИНИСТРАТИВНА · 13:15ч</div></div>
-              <div class="task-item" style="opacity:0.6;border-left:2px solid var(--green)"><div class="task-item-title">Разузнаване</div><div class="task-item-meta">ОПЕРАТИВНА · 13:22ч</div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Team grid -->
-        <div class="team-section">
-          <h3>ЕКИПИ НА ПРОИЗШЕСТВИЕ</h3>
-          <div class="team-grid">
-            <div class="team-card"><div class="team-avatar" style="background:rgba(232,34,10,0.1);border-color:var(--red)">👨‍🚒</div><div class="team-name">Георгиев П.</div><div class="team-role">КОМАНДИР · АА-01</div><div class="team-status-dot dot-active"></div></div>
-            <div class="team-card"><div class="team-avatar" style="background:rgba(0,232,122,0.1);border-color:var(--green)">👨‍🚒</div><div class="team-name">Стоянов Д.</div><div class="team-role">ПОЖАРНИКАР · АА-01</div><div class="team-status-dot dot-active"></div></div>
-            <div class="team-card"><div class="team-avatar" style="background:rgba(255,201,64,0.1);border-color:var(--yellow)">👨‍🚒</div><div class="team-name">Иванов К.</div><div class="team-role">ВОДАЧ · АА-03</div><div class="team-status-dot dot-enroute"></div></div>
-            <div class="team-card"><div class="team-avatar" style="background:rgba(232,34,10,0.1);border-color:var(--red)">👩‍🚒</div><div class="team-name">Петрова А.</div><div class="team-role">ПОЖАРНИКАР · АА-03</div><div class="team-status-dot dot-active"></div></div>
-            <div class="team-card"><div class="team-avatar" style="background:rgba(0,170,255,0.1);border-color:var(--blue)">👨‍🚒</div><div class="team-name">Николов Г.</div><div class="team-role">КОМАНДИР · АА-06</div><div class="team-status-dot dot-active"></div></div>
-            <div class="team-card"><div class="team-avatar" style="background:rgba(232,34,10,0.1);border-color:var(--red)">👨‍🚒</div><div class="team-name">Димов Б.</div><div class="team-role">ПОЖАРНИКАР · АА-06</div><div class="team-status-dot dot-active"></div></div>
-          </div>
-        </div>
-
-      </main><!-- /main -->
-
-      <!-- RIGHT PANEL – chat -->
-      <aside class="right-panel">
-        <div class="section-hdr">
-          <span>ЧАТ</span> #2024-0412 <span class="notif"></span>
-        </div>
-        <div class="chat-msgs" id="chat-msgs">
-          <div class="chat-msg"><div class="chat-sender">ОЦ · ДИСПЕЧЕР МАРИНОВА</div><div class="chat-bubble">Произшествие регистрирано. АА-01 и АА-03 – потвърдете приемане.</div><div class="chat-time">13:04</div></div>
-          <div class="chat-msg mine"><div class="chat-bubble">АА-01 потвърждава. Отпътуваме.</div><div class="chat-time">13:05</div></div>
-          <div class="chat-msg"><div class="chat-sender">АА-03 · ИВАНОВ К.</div><div class="chat-bubble">АА-03 потвърждава. Ще пристигнем след 8 мин.</div><div class="chat-time">13:06</div></div>
-          <div class="chat-msg mine"><div class="chat-bubble">На място. Пожарът обхваща около 2 ха. Вятърът носи към изток. Нужни са още ресурси.</div><div class="chat-time">13:18</div></div>
-          <div class="chat-msg"><div class="chat-sender">ОЦ · ДИСПЕЧЕР МАРИНОВА</div><div class="chat-bubble">Изпращаме АА-06 и цистерна. Очаквано пристигане: 15 мин.</div><div class="chat-time">13:20</div></div>
-          <div class="chat-msg"><div class="chat-sender">АА-01 · ГЕОРГИЕВ П.</div><div class="chat-bubble">⚠️ ВНИМАНИЕ: фронтът се е разширил. Молим за въздушна поддръжка.</div><div class="chat-time">14:12</div></div>
-        </div>
-
-        <div class="templates">
-          <div class="template-title">БЪРЗИ СЪОБЩЕНИЯ</div>
-          <button class="template-btn" onclick="sendTemplate('✅ Пристигнахме на място.')">✅ Пристигнахме</button>
-          <button class="template-btn" onclick="sendTemplate('⚠️ Нужна е подкрепа!')">⚠️ Нужна подкрепа</button>
-          <button class="template-btn" onclick="sendTemplate('✓ Задачата е изпълнена.')">✓ Задача изпълнена</button>
-          <button class="template-btn" onclick="sendTemplate('🔙 Връщаме се в базата.')">🔙 Връщане в базата</button>
-        </div>
-
-        <div class="chat-input-area">
-          <input class="chat-input" id="chat-in" placeholder="Напишете съобщение..." />
-          <button class="chat-send" onclick="sendMsg()">ИЗПРАТИ</button>
-        </div>
-      </aside>
-
-    </div><!-- /view-ops -->
-
-    <!-- ── INCIDENTS VIEW ── -->
-    <div id="view-incidents" class="view" style="flex-direction:column;width:100%;padding:20px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;">ВСИЧКИ ПРОИЗШЕСТВИЯ</div>
-        <button class="btn btn-red" onclick="newIncident()">+ НОВО ПРОИЗШЕСТВИЕ</button>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;">
-        <div class="detail-panel" style="cursor:pointer" onclick="switchView('ops')"><div class="detail-id" style="color:var(--red)">#2024-0412 · КРИТИЧЕН · 1ч 24мин</div><div class="detail-title" style="font-size:18px">🔥 Горски пожар – Витоша</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">3 екипа · 6 служители · Активно</div></div>
-        <div class="detail-panel" style="cursor:pointer"><div class="detail-id" style="color:var(--red)">#2024-0411 · ВИСОК · 0ч 47мин</div><div class="detail-title" style="font-size:18px">🏭 Промишлен пожар – Люлин</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">2 екипа · 4 служители · Активно</div></div>
-        <div class="detail-panel" style="cursor:pointer"><div class="detail-id" style="color:var(--yellow)">#2024-0410 · СРЕДЕН · 0ч 08мин</div><div class="detail-title" style="font-size:18px">🚗 ПТП – Ботевградско шосе</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">1 екип · 2 служители · Ново</div></div>
-        <div class="detail-panel" style="cursor:pointer"><div class="detail-id" style="color:var(--yellow)">#2024-0409 · СРЕДЕН · 0ч 35мин</div><div class="detail-title" style="font-size:18px">💨 Газова авария – Раковски 45</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">1 екип · 2 служители · Активно</div></div>
-        <div class="detail-panel" style="opacity:0.5;cursor:pointer"><div class="detail-id" style="color:var(--green)">#2024-0408 · ПРИКЛЮЧЕНО · Вчера</div><div class="detail-title" style="font-size:18px">🏠 Жилищен пожар – Младост 4</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">2 екипа · Приключено 22:14</div></div>
-      </div>
+  </div>
+  <div class="topbar-status">
+    <div class="status-item"><div class="status-val red" id="active-count">4</div><div class="status-lbl">АКТИВНИ</div></div>
+    <div class="status-item"><div class="status-val green">12</div><div class="status-lbl">ЕКИПИ</div></div>
+    <div class="status-item"><div class="status-val yellow">47</div><div class="status-lbl">СЛУЖИТЕЛИ</div></div>
+    <div class="status-item"><div class="status-val" style="color:var(--cyan)">8</div><div class="status-lbl">АВТОМОБИЛИ</div></div>
+  </div>
+  <div class="topbar-right">
+    <div>
+      <div class="time-display" id="clock">15:28:44</div>
+      <div class="date-display">21.04.2026 · ОПЕРАТИВЕН ЦЕНТЪР</div>
     </div>
+  </div>
+</div>
 
-    <!-- ── PERSONNEL VIEW ── -->
-    <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
-        <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;">ПЕРСОНАЛ</div>
-        <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">ТЕКУЩА СМЯНА · 47 СЛУЖИТЕЛИ</div>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;">
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Георгиев П.</div><div class="person-unit">АА-01 · Командир</div></div><span class="person-badge badge-active">НА МЕСТО</span></div>
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Стоянов Д.</div><div class="person-unit">АА-01 · Пожарникар</div></div><span class="person-badge badge-active">НА МЕСТО</span></div>
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Иванов К.</div><div class="person-unit">АА-03 · Водач</div></div><span class="person-badge badge-enroute">В ДВИЖЕНИЕ</span></div>
-        <div class="person-row"><div class="person-avatar">👩‍🚒</div><div class="person-info"><div class="person-name">Петрова А.</div><div class="person-unit">АА-03 · Пожарникар</div></div><span class="person-badge badge-active">НА МЕСТО</span></div>
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Николов Г.</div><div class="person-unit">АА-06 · Командир</div></div><span class="person-badge badge-active">НА МЕСТО</span></div>
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Маринов С.</div><div class="person-unit">АА-05 · Пожарникар</div></div><span class="person-badge badge-off">В БАЗАТА</span></div>
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Христов В.</div><div class="person-unit">АА-07 · Водач</div></div><span class="person-badge badge-enroute">В ДВИЖЕНИЕ</span></div>
-        <div class="person-row"><div class="person-avatar">👩‍🚒</div><div class="person-info"><div class="person-name">Тодорова М.</div><div class="person-unit">АА-09 · Пожарникар</div></div><span class="person-badge badge-off">В БАЗАТА</span></div>
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Велков Н.</div><div class="person-unit">АА-02 · Командир</div></div><span class="person-badge badge-leave">ОТПУСК</span></div>
-        <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Спасов Т.</div><div class="person-unit">АА-04 · Пожарникар</div></div><span class="person-badge badge-leave">БОЛНИЧЕН</span></div>
-      </div>
-    </div>
+<div class="nav">
+  <button class="nav-btn active" onclick="switchView('ops')">⚡ Оперативен Център <span class="nav-badge">4</span></button>
+  <button class="nav-btn" onclick="switchView('incidents')">🚨 Произшествия</button>
+  <button class="nav-btn" onclick="switchView('personnel')">👥 Персонал</button>
+  <button class="nav-btn" onclick="switchView('vehicles')">🚒 Автомобили</button>
+  <button class="nav-btn" onclick="switchView('resources')">📦 Ресурси</button>
+</div>
 
-    <!-- ── VEHICLES VIEW ── -->
-    <div id="view-vehicles" class="view" style="flex-direction:column;width:100%;padding:20px;">
-      <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;margin-bottom:16px;">АВТОМОБИЛИ</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">
-        <div class="detail-panel"><div class="detail-id" style="color:var(--red)">АА-01 · ПМ-01 · АКТИВЕН</div><div class="detail-title" style="font-size:17px">🚒 Пожарен автомобил – Scania</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">Произшествие #2024-0412 · Гориво: 78%</div></div>
-        <div class="detail-panel"><div class="detail-id" style="color:var(--red)">АА-03 · ПМ-03 · АКТИВЕН</div><div class="detail-title" style="font-size:17px">🚒 Пожарен автомобил – MAN</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">Произшествие #2024-0412 · Гориво: 55%</div></div>
-        <div class="detail-panel"><div class="detail-id" style="color:var(--yellow)">АА-07 · ЦТ-02 · В ДВИЖЕНИЕ</div><div class="detail-title" style="font-size:17px">🚛 Цистерна – Mercedes</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">Произшествие #2024-0410 · Гориво: 90%</div></div>
-        <div class="detail-panel"><div class="detail-id" style="color:var(--green)">АА-05 · ПМ-05 · ГОТОВ</div><div class="detail-title" style="font-size:17px">🚒 Пожарен автомобил – Scania</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">В базата · Гориво: 100% · Техн. изправен</div></div>
-        <div class="detail-panel"><div class="detail-id" style="color:var(--green)">АА-09 · ЛА-01 · ГОТОВ</div><div class="detail-title" style="font-size:17px">🚑 Лека спасителна кола</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">В базата · Гориво: 85%</div></div>
-        <div class="detail-panel" style="opacity:0.4"><div class="detail-id" style="color:var(--text-dim)">АА-04 · ПМ-04 · СЕРВИЗ</div><div class="detail-title" style="font-size:17px">🔧 Пожарен автомобил – MAN</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">В сервиз до 23.04</div></div>
-      </div>
-    </div>
+<div class="workspace">
 
-    <!-- ── RESOURCES VIEW ── -->
-    <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;">
-      <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;margin-bottom:16px;">РЕСУРСИ И ЗАЯВКИ</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
-        <div class="detail-panel">
-          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:3px;margin-bottom:12px;">НАЛИЧНОСТ</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-size:13px;">💧 Вода (цистерни)</span><span style="font-family:var(--font-mono);font-size:13px;color:var(--cyan)">3 / 5 бр.</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-size:13px;">⛽ Гориво</span><span style="font-family:var(--font-mono);font-size:13px;color:var(--green)">1240 л</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-size:13px;">🧯 Пожаропотушаваща пяна</span><span style="font-family:var(--font-mono);font-size:13px;color:var(--yellow)">320 кг (НИСКО)</span></div>
-            <div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;"><span style="font-size:13px;">🛡 Защитни костюми</span><span style="font-family:var(--font-mono);font-size:13px;color:var(--green)">18 бр.</span></div>
+  <!-- OPS VIEW -->
+  <div id="view-ops" class="view active" style="flex-direction:row;width:100%;">
+
+    <div class="sidebar">
+      <div class="section-hdr">
+        <span>ПРОИЗШЕСТВИЯ</span>
+        <button class="btn btn-red btn-sm" onclick="newIncident()">+ НОВО</button>
+      </div>
+      <div class="incidents">
+        <div class="incident-card priority-high selected" onclick="selectIncident(0)">
+          <div class="inc-id">#2024-0412</div>
+          <div class="inc-type">🔥 Горски пожар</div>
+          <div class="inc-location">📍 Витоша, Боряна</div>
+          <div class="inc-meta">
+            <span class="inc-tag tag-active">АКТИВНО</span>
+            <span class="inc-tag tag-unit">3 ЕКИПА</span>
+            <span class="inc-tag tag-time">1:24ч</span>
           </div>
         </div>
-        <div class="detail-panel">
-          <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:3px;margin-bottom:12px;">АКТИВНИ ЗАЯВКИ</div>
-          <div style="display:flex;flex-direction:column;gap:8px;">
-            <div style="padding:10px;background:rgba(232,34,10,0.08);border:1px solid rgba(232,34,10,0.25);border-radius:2px;"><div style="font-size:12px;font-weight:500;">💧 2 цистерни с вода → Произшествие #2024-0412</div><div style="font-family:var(--font-mono);font-size:10px;color:var(--yellow);margin-top:4px;">В обработка · Заявено: 14:05</div></div>
-            <div style="padding:10px;background:rgba(255,201,64,0.08);border:1px solid rgba(255,201,64,0.2);border-radius:2px;"><div style="font-size:12px;font-weight:500;">⛽ Зареждане на АА-03</div><div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:4px;">Изчаква · Заявено: 14:30</div></div>
+        <div class="incident-card priority-high" onclick="selectIncident(1)">
+          <div class="inc-id">#2024-0411</div>
+          <div class="inc-type">🏭 Промишлен пожар</div>
+          <div class="inc-location">📍 Индустриална зона, Люлин</div>
+          <div class="inc-meta">
+            <span class="inc-tag tag-active">АКТИВНО</span>
+            <span class="inc-tag tag-unit">2 ЕКИПА</span>
+            <span class="inc-tag tag-time">0:47ч</span>
           </div>
-          <button class="btn btn-outline" style="margin-top:12px;width:100%;" onclick="alert('Нова заявка за ресурси!')">+ НОВА ЗАЯВКА</button>
+        </div>
+        <div class="incident-card priority-med" onclick="selectIncident(2)">
+          <div class="inc-id">#2024-0410</div>
+          <div class="inc-type">🚗 ПТП с пострадали</div>
+          <div class="inc-location">📍 Ботевградско шосе, км 12</div>
+          <div class="inc-meta">
+            <span class="inc-tag tag-new">НОВО 112</span>
+            <span class="inc-tag tag-unit">1 ЕКИП</span>
+            <span class="inc-tag tag-time">0:08ч</span>
+          </div>
+        </div>
+        <div class="incident-card priority-low" onclick="selectIncident(3)">
+          <div class="inc-id">#2024-0409</div>
+          <div class="inc-type">💨 Газова авария</div>
+          <div class="inc-location">📍 ул. Г. С. Раковски 45</div>
+          <div class="inc-meta">
+            <span class="inc-tag tag-active">АКТИВНО</span>
+            <span class="inc-tag tag-unit">1 ЕКИП</span>
+            <span class="inc-tag tag-time">0:35ч</span>
+          </div>
         </div>
       </div>
     </div>
 
-  </div><!-- /workspace -->
+    <div class="main">
 
-  <!-- SOS BUTTON -->
-  <div class="sos-widget">
-    <button class="sos-btn" onclick="sosAlert()">SOS</button>
+      <!-- Map -->
+      <div class="map-container">
+        <div class="map-bg"></div>
+        <div class="map-grid"></div>
+        <div class="map-label">КАРТА · СОФИЯ И РАЙОН · GPS LIVE</div>
+        <div class="map-fire" style="left:38%;top:30%">🔥</div>
+        <div class="map-fire" style="left:22%;top:52%;font-size:18px">🔥</div>
+        <div class="map-unit unit-fire" style="left:35%;top:26%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-01</div></div>
+        <div class="map-unit unit-fire" style="left:41%;top:34%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-03</div></div>
+        <div class="map-unit unit-enroute" style="left:55%;top:48%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-07</div></div>
+        <div class="map-unit unit-available" style="left:65%;top:35%"><div class="map-unit-dot"></div><div class="map-unit-lbl">АА-05</div></div>
+        <div class="map-controls">
+          <button class="map-btn">+</button>
+          <button class="map-btn">−</button>
+          <button class="map-btn">⊕</button>
+        </div>
+        <div style="position:absolute;bottom:10px;left:12px;display:flex;gap:12px;font-family:var(--font-mono);font-size:9px;">
+          <span style="color:var(--red)">● ПОЖАР</span>
+          <span style="color:var(--yellow)">● В ДВИЖЕНИЕ</span>
+          <span style="color:var(--green)">● СВОБОДЕН</span>
+        </div>
+      </div>
+
+      <!-- ★ NEW IN COMMIT 4: Detail Panel -->
+      <div class="detail-panel" id="incident-detail">
+        <div class="detail-id">#2024-0412 · ГОРСКИ ПОЖАР · ПРИОРИТЕТ КРИТИЧЕН</div>
+        <div class="detail-title">🔥 Горски пожар – Витоша, м. Боряна</div>
+        <div class="detail-grid">
+          <div class="detail-field">
+            <label>МЕСТОПОЛОЖЕНИЕ</label>
+            <div class="val">Витоша, м. Боряна<br><span style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">42.6284° N, 23.2847° E</span></div>
+          </div>
+          <div class="detail-field">
+            <label>РЕГИСТРИРАН ЧРЕЗ</label>
+            <div class="val">Тел. 112 · 13:04:17</div>
+          </div>
+          <div class="detail-field">
+            <label>ЗАСЕГНАТА ПЛОЩ</label>
+            <div class="val danger">~4.2 ха и нараства</div>
+          </div>
+          <div class="detail-field">
+            <label>ВЯТЪР</label>
+            <div class="val">СЗ · 18 км/ч · Засилване</div>
+          </div>
+          <div class="detail-field">
+            <label>НАЗНАЧЕНИ ЕКИПИ</label>
+            <div class="val">АА-01, АА-03, АА-06</div>
+          </div>
+          <div class="detail-field">
+            <label>КОМАНДИР</label>
+            <div class="val">Ст. Инсп. Георгиев П.</div>
+          </div>
+        </div>
+        <div class="hazmat-list">
+          <div style="font-family:var(--font-mono);font-size:9px;color:var(--text-dim);letter-spacing:2px;margin-bottom:6px;">ОПАСНИ ВЕЩЕСТВА / РИСКОВЕ</div>
+          <div class="hazmat-item">⚠️ Гъста дървесна растителност – бърз пренос на огъня</div>
+          <div class="hazmat-item">⚠️ Близост до населено място – евакуация в готовност</div>
+          <div class="hazmat-item">⚠️ Ограничен достъп за тежка техника</div>
+        </div>
+        <div style="margin-top:14px;display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="btn btn-red btn-sm" onclick="alert('GPS навигация стартирана!')">🗺 GPS НАВИГАЦИЯ</button>
+          <button class="btn btn-outline btn-sm">📋 ПЛАН ЗА ДЕЙСТВИЕ</button>
+          <button class="btn btn-outline btn-sm">📹 ВИДЕО ВРЪЗКА</button>
+          <button class="btn btn-outline btn-sm" style="color:var(--green);border-color:var(--green)" onclick="closeIncident()">✓ ПРИКЛЮЧИ</button>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="right-panel">
+      <div class="section-hdr"><span>ЧАТ</span> #2024-0412</div>
+      <div style="padding:16px;color:var(--text-dim);font-size:12px;">Чат панелът ще бъде добавен в следващ commit.</div>
+    </div>
+
   </div>
 
-  <script src="app.js"></script>
+  <div id="view-incidents" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ВСИЧКИ ПРОИЗШЕСТВИЯ</div>
+  </div>
+  <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПЕРСОНАЛ</div>
+  </div>
+  <div id="view-vehicles" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">АВТОМОБИЛИ</div>
+  </div>
+  <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ</div>
+  </div>
+
+</div>
+
+<script src="app.js"></script>
 </body>
 </html>
