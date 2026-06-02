@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 7: Add chat panel -->
+<!-- Commit 8: Add quick message templates -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -180,6 +180,14 @@
       <div class="chat-msg"><div class="chat-sender">ОЦ · ДИСПЕЧЕР МАРИНОВА</div><div class="chat-bubble">Изпращаме АА-06 и цистерна. Очаквано пристигане: 15 мин.</div><div class="chat-time">13:20</div></div>
       <div class="chat-msg"><div class="chat-sender">АА-01 · ГЕОРГИЕВ П.</div><div class="chat-bubble">⚠️ ВНИМАНИЕ: фронтът се е разширил. Молим за въздушна поддръжка.</div><div class="chat-time">14:12</div></div>
       </div>
+      
+    <div class="templates">
+      <div class="template-title">БЪРЗИ СЪОБЩЕНИЯ</div>
+      <button class="template-btn" onclick="sendTemplate('✅ Пристигнахме на място.')">✅ Пристигнахме</button>
+      <button class="template-btn" onclick="sendTemplate('⚠️ Нужна е подкрепа!')">⚠️ Нужна подкрепа</button>
+      <button class="template-btn" onclick="sendTemplate('✓ Задачата е изпълнена.')">✓ Задача изпълнена</button>
+      <button class="template-btn" onclick="sendTemplate('🔙 Връщаме се в базата.')">🔙 Връщане в базата</button>
+    </div>
       <div class="chat-input-area">
         <input class="chat-input" id="chat-in" placeholder="Напишете съобщение...">
         <button class="chat-send" onclick="sendMsg()">ИЗПРАТИ</button>
