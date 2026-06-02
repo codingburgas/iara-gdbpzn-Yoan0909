@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 6: Add team grid -->
+<!-- Commit 7: Add chat panel -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -170,7 +170,20 @@
     
     <div class="right-panel">
       <div class="section-hdr"><span>ЧАТ</span> #2024-0412 <span class="notif"></span></div>
-      <div style="padding:16px;color:var(--text-dim);font-size:12px;">Чат идва в следващ commit.</div>
+      
+      <div class="chat-msgs" id="chat-msgs">
+        
+      <div class="chat-msg"><div class="chat-sender">ОЦ · ДИСПЕЧЕР МАРИНОВА</div><div class="chat-bubble">Произшествие регистрирано. АА-01 и АА-03 – потвърдете приемане.</div><div class="chat-time">13:04</div></div>
+      <div class="chat-msg mine"><div class="chat-bubble">АА-01 потвърждава. Отпътуваме.</div><div class="chat-time">13:05</div></div>
+      <div class="chat-msg"><div class="chat-sender">АА-03 · ИВАНОВ К.</div><div class="chat-bubble">АА-03 потвърждава. Ще пристигнем след 8 мин.</div><div class="chat-time">13:06</div></div>
+      <div class="chat-msg mine"><div class="chat-bubble">На място. Пожарът обхваща около 2 ха. Нужни са още ресурси.</div><div class="chat-time">13:18</div></div>
+      <div class="chat-msg"><div class="chat-sender">ОЦ · ДИСПЕЧЕР МАРИНОВА</div><div class="chat-bubble">Изпращаме АА-06 и цистерна. Очаквано пристигане: 15 мин.</div><div class="chat-time">13:20</div></div>
+      <div class="chat-msg"><div class="chat-sender">АА-01 · ГЕОРГИЕВ П.</div><div class="chat-bubble">⚠️ ВНИМАНИЕ: фронтът се е разширил. Молим за въздушна поддръжка.</div><div class="chat-time">14:12</div></div>
+      </div>
+      <div class="chat-input-area">
+        <input class="chat-input" id="chat-in" placeholder="Напишете съобщение...">
+        <button class="chat-send" onclick="sendMsg()">ИЗПРАТИ</button>
+      </div>
     </div>
   </div>
   <div id="view-incidents" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПРОИЗШЕСТВИЯ – скоро</div></div>
