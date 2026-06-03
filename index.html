@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 8: Add quick message templates -->
+<!-- Commit 9: Add alert banner and SOS button -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -92,6 +92,11 @@
     </div>
     <div class="main">
       
+    <div class="alert-banner" id="alert-banner">
+      <div class="alert-icon">⚠️</div>
+      <div class="alert-text"><strong>НОВА ЗАДАЧА ОТ 112:</strong> ПТП на Ботевградско шосе – изпратете екип незабавно.</div>
+      <button class="alert-close" onclick="document.getElementById('alert-banner').style.display='none'">✕</button>
+    </div>
       
       
       <div class="map-container">
@@ -198,6 +203,9 @@
   <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПЕРСОНАЛ – скоро</div></div>
   <div id="view-vehicles"  class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">АВТОМОБИЛИ – скоро</div></div>
   <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ – скоро</div></div>
+</div>
+<div class="sos-widget">
+  <button class="sos-btn" onclick="sosAlert()">SOS</button>
 </div>
 <script src="app.js"></script>
 </body>
