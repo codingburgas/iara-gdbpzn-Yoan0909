@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 12: Add vehicles view -->
+<!-- Commit 13: Add resources view -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -236,7 +236,28 @@
       <div class="detail-panel" style="opacity:0.4"><div class="detail-id" style="color:var(--text-dim)">АА-04 · ПМ-04 · СЕРВИЗ</div><div class="detail-title" style="font-size:17px">🔧 Пожарен автомобил – MAN</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">В сервиз до 23.04</div></div>
     </div>
   </div>
-  <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ – скоро</div></div>
+  <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;margin-bottom:16px;">РЕСУРСИ И ЗАЯВКИ</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+      <div class="detail-panel">
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:3px;margin-bottom:12px;">НАЛИЧНОСТ</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span>💧 Вода (цистерни)</span><span style="font-family:var(--font-mono);color:var(--cyan)">3 / 5 бр.</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span>⛽ Гориво</span><span style="font-family:var(--font-mono);color:var(--green)">1240 л</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid var(--border);"><span>🧯 Пожаропотушаваща пяна</span><span style="font-family:var(--font-mono);color:var(--yellow)">320 кг (НИСКО)</span></div>
+          <div style="display:flex;justify-content:space-between;padding:6px 0;"><span>🛡 Защитни костюми</span><span style="font-family:var(--font-mono);color:var(--green)">18 бр.</span></div>
+        </div>
+      </div>
+      <div class="detail-panel">
+        <div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);letter-spacing:3px;margin-bottom:12px;">АКТИВНИ ЗАЯВКИ</div>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <div style="padding:10px;background:rgba(232,34,10,0.08);border:1px solid rgba(232,34,10,0.25);border-radius:2px;"><div style="font-size:12px;font-weight:500;">💧 2 цистерни с вода → #2024-0412</div><div style="font-family:var(--font-mono);font-size:10px;color:var(--yellow);margin-top:4px;">В обработка · 14:05</div></div>
+          <div style="padding:10px;background:rgba(255,201,64,0.08);border:1px solid rgba(255,201,64,0.2);border-radius:2px;"><div style="font-size:12px;font-weight:500;">⛽ Зареждане на АА-03</div><div style="font-family:var(--font-mono);font-size:10px;color:var(--text-dim);margin-top:4px;">Изчаква · 14:30</div></div>
+        </div>
+        <button class="btn btn-outline" style="margin-top:12px;width:100%;" onclick="alert('Нова заявка!')">+ НОВА ЗАЯВКА</button>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="sos-widget">
   <button class="sos-btn" onclick="sosAlert()">SOS</button>
