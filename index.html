@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 10: Add incidents view -->
+<!-- Commit 11: Add personnel view -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -211,7 +211,21 @@
       <div class="detail-panel" style="opacity:0.5;cursor:pointer"><div class="detail-id" style="color:var(--green)">#2024-0408 · ПРИКЛЮЧЕНО · Вчера</div><div class="detail-title" style="font-size:18px">🏠 Жилищен пожар – Младост 4</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">2 екипа · Приключено 22:14</div></div>
     </div>
   </div>
-  <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПЕРСОНАЛ – скоро</div></div>
+  <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;">ПЕРСОНАЛ</div>
+      <div style="font-family:var(--font-mono);font-size:11px;color:var(--text-dim)">ТЕКУЩА СМЯНА · 47 СЛУЖИТЕЛИ</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:8px;">
+      <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Георгиев П.</div><div class="person-unit">АА-01 · Командир</div></div><span class="person-badge badge-active">НА МЕСТО</span></div>
+      <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Стоянов Д.</div><div class="person-unit">АА-01 · Пожарникар</div></div><span class="person-badge badge-active">НА МЕСТО</span></div>
+      <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Иванов К.</div><div class="person-unit">АА-03 · Водач</div></div><span class="person-badge badge-enroute">В ДВИЖЕНИЕ</span></div>
+      <div class="person-row"><div class="person-avatar">👩‍🚒</div><div class="person-info"><div class="person-name">Петрова А.</div><div class="person-unit">АА-03 · Пожарникар</div></div><span class="person-badge badge-active">НА МЕСТО</span></div>
+      <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Маринов С.</div><div class="person-unit">АА-05 · Пожарникар</div></div><span class="person-badge badge-off">В БАЗАТА</span></div>
+      <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Велков Н.</div><div class="person-unit">АА-02 · Командир</div></div><span class="person-badge badge-leave">ОТПУСК</span></div>
+      <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Спасов Т.</div><div class="person-unit">АА-04 · Пожарникар</div></div><span class="person-badge badge-leave">БОЛНИЧЕН</span></div>
+    </div>
+  </div>
   <div id="view-vehicles"  class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">АВТОМОБИЛИ – скоро</div></div>
   <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ – скоро</div></div>
 </div>
