@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 11: Add personnel view -->
+<!-- Commit 12: Add vehicles view -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -226,7 +226,16 @@
       <div class="person-row"><div class="person-avatar">👨‍🚒</div><div class="person-info"><div class="person-name">Спасов Т.</div><div class="person-unit">АА-04 · Пожарникар</div></div><span class="person-badge badge-leave">БОЛНИЧЕН</span></div>
     </div>
   </div>
-  <div id="view-vehicles"  class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">АВТОМОБИЛИ – скоро</div></div>
+  <div id="view-vehicles" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;margin-bottom:16px;">АВТОМОБИЛИ</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:12px;">
+      <div class="detail-panel"><div class="detail-id" style="color:var(--red)">АА-01 · ПМ-01 · АКТИВЕН</div><div class="detail-title" style="font-size:17px">🚒 Пожарен автомобил – Scania</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">Произшествие #2024-0412 · Гориво: 78%</div></div>
+      <div class="detail-panel"><div class="detail-id" style="color:var(--red)">АА-03 · ПМ-03 · АКТИВЕН</div><div class="detail-title" style="font-size:17px">🚒 Пожарен автомобил – MAN</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">Произшествие #2024-0412 · Гориво: 55%</div></div>
+      <div class="detail-panel"><div class="detail-id" style="color:var(--yellow)">АА-07 · ЦТ-02 · В ДВИЖЕНИЕ</div><div class="detail-title" style="font-size:17px">🚛 Цистерна – Mercedes</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">Произшествие #2024-0410 · Гориво: 90%</div></div>
+      <div class="detail-panel"><div class="detail-id" style="color:var(--green)">АА-05 · ПМ-05 · ГОТОВ</div><div class="detail-title" style="font-size:17px">🚒 Пожарен автомобил – Scania</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">В базата · Гориво: 100%</div></div>
+      <div class="detail-panel" style="opacity:0.4"><div class="detail-id" style="color:var(--text-dim)">АА-04 · ПМ-04 · СЕРВИЗ</div><div class="detail-title" style="font-size:17px">🔧 Пожарен автомобил – MAN</div><div style="font-size:12px;color:var(--text-dim);margin-top:6px;">В сервиз до 23.04</div></div>
+    </div>
+  </div>
   <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ – скоро</div></div>
 </div>
 <div class="sos-widget">
