@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 9: Add alert banner and SOS button -->
+<!-- Commit 10: Add incidents view -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -199,7 +199,18 @@
       </div>
     </div>
   </div>
-  <div id="view-incidents" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПРОИЗШЕСТВИЯ – скоро</div></div>
+  <div id="view-incidents" class="view" style="flex-direction:column;width:100%;padding:20px;">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;">
+      <div style="font-family:var(--font-display);font-size:24px;font-weight:700;letter-spacing:2px;">ВСИЧКИ ПРОИЗШЕСТВИЯ</div>
+      <button class="btn btn-red" onclick="newIncident()">+ НОВО ПРОИЗШЕСТВИЕ</button>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:12px;">
+      <div class="detail-panel" style="cursor:pointer" onclick="switchView('ops')"><div class="detail-id" style="color:var(--red)">#2024-0412 · КРИТИЧЕН · 1ч 24мин</div><div class="detail-title" style="font-size:18px">🔥 Горски пожар – Витоша</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">3 екипа · 6 служители · Активно</div></div>
+      <div class="detail-panel" style="cursor:pointer"><div class="detail-id" style="color:var(--red)">#2024-0411 · ВИСОК · 0ч 47мин</div><div class="detail-title" style="font-size:18px">🏭 Промишлен пожар – Люлин</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">2 екипа · 4 служители · Активно</div></div>
+      <div class="detail-panel" style="cursor:pointer"><div class="detail-id" style="color:var(--yellow)">#2024-0410 · СРЕДЕН · 0ч 08мин</div><div class="detail-title" style="font-size:18px">🚗 ПТП – Ботевградско шосе</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">1 екип · 2 служители · Ново</div></div>
+      <div class="detail-panel" style="opacity:0.5;cursor:pointer"><div class="detail-id" style="color:var(--green)">#2024-0408 · ПРИКЛЮЧЕНО · Вчера</div><div class="detail-title" style="font-size:18px">🏠 Жилищен пожар – Младост 4</div><div style="font-size:12px;color:var(--text-dim);margin-top:4px;">2 екипа · Приключено 22:14</div></div>
+    </div>
+  </div>
   <div id="view-personnel" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">ПЕРСОНАЛ – скоро</div></div>
   <div id="view-vehicles"  class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">АВТОМОБИЛИ – скоро</div></div>
   <div id="view-resources" class="view" style="flex-direction:column;width:100%;padding:20px;"><div style="font-family:var(--font-display);font-size:24px;font-weight:700;">РЕСУРСИ – скоро</div></div>
