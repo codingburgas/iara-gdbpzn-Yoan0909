@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<!-- Commit 13: Add resources view -->
+<!-- Commit 14: Add resource bar and final polish -->
 <div class="topbar">
   <div class="topbar-left">
     <div class="logo-badge">
@@ -98,6 +98,15 @@
       <button class="alert-close" onclick="document.getElementById('alert-banner').style.display='none'">✕</button>
     </div>
       
+    <div class="resource-bar">
+      <h3>РЕСУРСИ · ТЕКУЩО СМЯНА</h3>
+      <div class="resource-grid">
+        <div class="resource-item"><div class="resource-value r-active">4</div><div class="resource-label">АКТИВНИ ПРОИЗШ.</div></div>
+        <div class="resource-item"><div class="resource-value r-standby">6</div><div class="resource-label">ГОТОВИ ЕКИПИ</div></div>
+        <div class="resource-item"><div class="resource-value r-total">47</div><div class="resource-label">СЛУЖИТЕЛИ НА СМЯНА</div></div>
+        <div class="resource-item"><div class="resource-value" style="color:var(--cyan)">8/10</div><div class="resource-label">АВТОМОБИЛИ ГОТОВИ</div></div>
+      </div>
+    </div>
       
       <div class="map-container">
         <div class="map-bg"></div>
